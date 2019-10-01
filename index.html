@@ -1,0 +1,169 @@
+<html>
+<head>
+    <title>Don's Portfolio</title>
+<!-- General CSS formatting -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+<!-- Page Specific CSS formatting -->
+    <style>
+    </style>
+
+</head>
+<body>
+  <div class="page">
+    <header> <h1>Don's Clock</h1> </header>
+
+    <h4>
+        The time is:<br>
+        <span id="clock">Clock goes here</span>
+    </h4>
+
+    <blockquote id="timeEvent">Time message is shown here</blockquote>
+
+    <button id="milTimeButton">Military Time!</button><BR>
+
+
+    <br>
+    <button id="playTimeButton">Play Time!</button>
+
+    <footer> <p>Adapt, Modify, Refine</p> </footer>
+  </div>
+
+<script>
+var wakeuptime = 7;
+var noon = 12;
+var lunchtime = 12;
+var siestatime = lunchtime + 2;
+var playtime;
+var milTime = true;
+var evening = 18;
+
+// Getting it to show the current time on the page
+var showCurrentTime = function(){
+    // display the string on the webpage
+    var clock = document.getElementById('clock');
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    var ampm = "am";
+ 
+    // Set hours
+	if (hours >= noon){
+	    ampm = "pm";
+	}
+    if (hours > noon && !milTime){ //consider military time option
+	    hours = hours - 12;
+	}
+ 
+    // Set Minutes
+    if (minutes < 10){
+        minutes = "0" + minutes;
+    }
+ 
+    // Set Seconds
+    if (seconds < 10){
+        seconds = "0" + seconds;
+    }
+ 
+    // put together the string that displays the time
+    clock.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+};
+
+// Getting the clock to increment on its own and change out messages and pictures
+var updateClock = function() 
+{
+    var time = new Date().getHours();
+    var messageText;
+    var timeEventJS = document.getElementById("timeEvent");
+
+    switch(time) {
+        case playtime:
+            messageText = "Let's have fun!"
+        break;
+        case wakeuptime:
+            messageText = "Get up!"
+        break;
+        case lunchtime:
+            messageText = "Time for lunch!"
+        break;
+        case siestatime:
+            messageText = "Shh... siesta time."
+        break;
+        default:
+            if (time < noon) {
+                messageText = "Good morning!"
+            } else {
+                messageText = "Good afternoon!"
+            }
+    }
+    timeEventJS.innerText = messageText;
+    showCurrentTime();
+};
+updateClock();
+
+// Getting the clock to increment once a second
+setInterval(updateClock,1000);
+
+// Getting the Military Button To Work
+var milButton = document.getElementById("milTimeButton");
+var milEvent = function(){
+    if (milTime){
+        milTime = false;
+        milTimeButton.innerText = "Military Time";
+        playTimeButton.style.backgroundColor = "#0A8DAB";
+    } else {
+        milTime = true;
+        milTimeButton.innerText = "Standard Time";
+        milTimeButton.style.backgroundColor = "#222";
+    }
+};
+
+milButton.addEventListener("click", milEvent);
+milEvent(); 
+
+// Getting the Play Time Button To Work
+var playButton = document.getElementById("playTimeButton");
+var playEvent = function(){
+    if (playtime < 0){
+        playtime = new Date().getHours();
+        playTimeButton.innerText = "Play Time Over!";
+        playTimeButton.style.backgroundColor = "#0A8DAB";
+    } else {
+        playtime = -1;
+        playTimeButton.innerText = "Play Time!";
+        playTimeButton.style.backgroundColor = "#222";
+    }
+};
+
+playButton.addEventListener("click", playEvent);
+playEvent(); 
+
+// Activates Wake-Up selector
+var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
+var wakeUpEvent = function(){
+    wakeuptime = wakeUpTimeSelector.value;
+};
+
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
+
+
+// Activates Lunch selector
+var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
+var lunchEvent = function(){
+    lunchtime = lunchTimeSelector.value;
+};
+
+lunchTimeSelector.addEventListener("change", lunchEvent);
+
+
+// Activates siesta-Time selector
+var siestaTimeSelector =  document.getElementById("siestaTimeSelector");
+var siestaEvent = function(){
+    siestatime = siestaTimeSelector.value;
+};
+
+siestaTimeSelector.addEventListener("change", siestaEvent);
+
+</script>
+</body>
+</html>

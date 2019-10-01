@@ -1,0 +1,277 @@
+<html>
+<head>
+    <title>Don's Clock</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    #wakeUpTimeSelector, #lunchTimeSelector, #siestaTimeSelector {
+        padding: 10px 0;
+    }
+
+    #milTimeButton {
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    #playTimeButton {
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+    </style>
+
+</head>
+<body>
+  <div class="page" id="container">
+    <header> <h1>Don's Clock</h1> </header>
+
+    <h4>
+        The time is:<br>
+        <span id="clock">Clock goes here</span>
+    </h4>
+
+    <blockquote id="timeEvent">Time message is shown here</blockquote>
+    <button type="button" id="milTimeButton">Show Standard Time</button><BR>
+    <table style="float:center" align="center">
+        <tr>
+            <td>
+                Set Wake Up Time
+            </td><td>
+                <select id="wakeUpTimeSelector">
+                <option value="1">1 AM - 2AM</option>
+                <option value="2">2 AM - 3AM</option>
+                <option value="3">3 AM - 4AM</option>
+                <option value="4">4 AM - 5AM</option>
+                <option value="5">5 AM - 6AM</option>
+                <option value="6">6 AM - 7AM</option>
+                <option value="7" selected>7 AM - 8AM</option>
+                <option value="8">8 AM - 9AM</option>
+                <option value="9">9 AM - 10AM</option>
+                <option value="10">10 AM - 11AM</option>
+                <option value="11">11 AM - 12PM</option>
+                <option value="12">12 PM - 1PM</option>
+                <option value="13">1 PM - 2PM</option>
+                <option value="14">2 PM - 3PM</option>
+                <option value="15">3 PM - 4PM</option>
+                <option value="16">4 PM - 5PM</option>
+                <option value="17">5 PM - 6PM</option>
+                <option value="18">6 PM - 7PM</option>
+                <option value="19">7 PM - 8PM</option>
+                <option value="20">8 PM - 9PM</option>
+                <option value="21">9 PM - 10PM</option>
+                <option value="22">10 PM - 11PM</option>
+                <option value="23">11 PM - 12AM</option>
+                <option value="24">12 AM - 1AM</option>
+                </select>
+            </td>
+        </tr>    
+        <tr>
+            <td>
+                Set Lunch Time
+            </td><td>
+                <select id="lunchTimeSelector">
+                <option value="1">1 AM - 2AM</option>
+                <option value="2">2 AM - 3AM</option>
+                <option value="3">3 AM - 4AM</option>
+                <option value="4">4 AM - 5AM</option>
+                <option value="5">5 AM - 6AM</option>
+                <option value="6">6 AM - 7AM</option>
+                <option value="7">7 AM - 8AM</option>
+                <option value="8">8 AM - 9AM</option>
+                <option value="9">9 AM - 10AM</option>
+                <option value="10">10 AM - 11AM</option>
+                <option value="11">11 AM - 12PM</option>
+                <option value="12" selected>12 PM - 1PM</option>
+                <option value="13">1 PM - 2PM</option>
+                <option value="14">2 PM - 3PM</option>
+                <option value="15">3 PM - 4PM</option>
+                <option value="16">4 PM - 5PM</option>
+                <option value="17">5 PM - 6PM</option>
+                <option value="18">6 PM - 7PM</option>
+                <option value="19">7 PM - 8PM</option>
+                <option value="20">8 PM - 9PM</option>
+                <option value="21">9 PM - 10PM</option>
+                <option value="22">10 PM - 11PM</option>
+                <option value="23">11 PM - 12AM</option>
+                <option value="24">12 AM - 1AM</option>
+                </select>
+            </td>
+        </tr><tr>
+            <td>
+                Set Siesta Time
+            </td><td>
+                <select id="siestaTimeSelector">
+                <option value="1">1 AM - 2AM</option>
+                <option value="2">2 AM - 3AM</option>
+                <option value="3">3 AM - 4AM</option>
+                <option value="4">4 AM - 5AM</option>
+                <option value="5">5 AM - 6AM</option>
+                <option value="6">6 AM - 7AM</option>
+                <option value="7">7 AM - 8AM</option>
+                <option value="8">8 AM - 9AM</option>
+                <option value="9">9 AM - 10AM</option>
+                <option value="10">10 AM - 11AM</option>
+                <option value="11">11 AM - 12PM</option>
+                <option value="12">12 PM - 1PM</option>
+                <option value="13">1 PM - 2PM</option>
+                <option value="14">2 PM - 3PM</option>
+                <option value="15" selected>3 PM - 4PM</option>
+                <option value="16">4 PM - 5PM</option>
+                <option value="17">5 PM - 6PM</option>
+                <option value="18">6 PM - 7PM</option>
+                <option value="19">7 PM - 8PM</option>
+                <option value="20">8 PM - 9PM</option>
+                <option value="21">9 PM - 10PM</option>
+                <option value="22">10 PM - 11PM</option>
+                <option value="23">11 PM - 12AM</option>
+                <option value="24">12 AM - 1AM</option>
+                </select>    
+            </td>
+        </tr>
+    </table>
+
+    <button type="button" id="playTimeButton">Play Time!</button>
+
+    <footer> <p>Adapt, Modify, Refine</p> </footer>
+  </div>
+
+<script>
+var wakeuptime = 7;
+var noon = 12;
+var lunchtime = 12;
+var siestatime = lunchtime + 2;
+var playTime;
+var milTime = true;
+var evening = 18;
+
+// Getting it to show the current time on the page
+var showCurrentTime = function(){
+    // display the string on the webpage
+    var clock = document.getElementById('clock');
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var seconds = currentTime.getSeconds();
+    var ampm = "am";
+ 
+    // Set hours
+	if (hours >= noon){
+	    ampm = "pm";
+	}
+    if (hours > noon && !milTime){ //consider military time option
+	    hours = hours - 12;
+	}
+ 
+    // Set Minutes
+    if (minutes < 10){
+        minutes = "0" + minutes;
+    }
+ 
+    // Set Seconds
+    if (seconds < 10){
+        seconds = "0" + seconds;
+    }
+ 
+    // put together the string that displays the time
+    if (milTime){
+        clock.innerText = `${hours}:${minutes}:${seconds}`;
+    } else {
+        clock.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
+};
+
+// Getting the clock to increment on its own and change out messages and pictures
+var updateClock = function() 
+{
+    var time = new Date().getHours();
+    var messageText;
+    var timeEventJS = document.getElementById("timeEvent");
+
+    switch(time) {
+        case playTime:
+            messageText = "Let's have fun!"
+        break;
+        case wakeuptime:
+            messageText = "Get up!"
+        break;
+        case lunchtime:
+            messageText = "Time for lunch!"
+        break;
+        case siestatime:
+            messageText = "Shh... siesta time."
+        break;
+        default:
+            if (time < noon) {
+                messageText = "Good morning!"
+            } else {
+                messageText = "Good afternoon!"
+            }
+    }
+    timeEventJS.innerText = messageText;
+    showCurrentTime();
+};
+updateClock();
+
+// Getting the clock to increment once a second
+setInterval(updateClock,1000);
+
+// Getting the Military Button To Work
+var milButton = document.getElementById("milTimeButton");
+var milEvent = function(){
+    if (milTime){
+        milTime = false;
+        milTimeButton.innerText = "Show 24-Hour Time";
+    } else {
+        milTime = true;
+        milTimeButton.innerText = "Show Standard Time";
+    }
+};
+
+milButton.addEventListener("click", milEvent);
+// milEvent(); 
+
+// Getting the Play Time Button To Work
+var playButton = document.getElementById("playTimeButton");
+var playEvent = function(){
+    if (playTime < 0){
+        playTime = new Date().getHours();
+        playTimeButton.innerText = "Play Time Over!";
+        playTimeButton.style.backgroundColor = "#0A8DAB";
+    } else {
+        playTime = -1;
+        playTimeButton.innerText = "Play Time!";
+        playTimeButton.style.backgroundColor = "#222";
+    }
+};
+
+playButton.addEventListener("click", playEvent);
+playEvent(); 
+
+// Activates Wake-Up selector
+var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
+var wakeUpEvent = function(){
+    wakeuptime = wakeUpTimeSelector.value;
+};
+
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
+
+
+// Activates Lunch selector
+var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
+var lunchEvent = function(){
+    lunchtime = lunchTimeSelector.value;
+};
+
+lunchTimeSelector.addEventListener("change", lunchEvent);
+
+
+// Activates siesta-Time selector
+var siestaTimeSelector =  document.getElementById("siestaTimeSelector");
+var siestaEvent = function(){
+    siestatime = siestaTimeSelector.value;
+};
+
+siestaTimeSelector.addEventListener("change", siestaEvent);
+
+</script>
+</body>
+</html>
