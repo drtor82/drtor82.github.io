@@ -1,169 +1,155 @@
-<html>
+<!DOCTYPE html>
 <head>
-    <title>Don's Portfolio</title>
-<!-- General CSS formatting -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-<!-- Page Specific CSS formatting -->
-    <style>
-    </style>
+<title>Don Torres</title>
 
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+
+    /* Dropdown Button */
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Dropdown button on hover & focus */
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #dddddd
+    }
+
+    /* Headers in dropdown menu */
+    .dropHeader {
+        color: white;
+        background-color: lightblue;        
+    }
+
+    /* Top banner background */
+    .floating-menu {
+        background: skyblue;
+        width: 100%;
+        z-index: 1000;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: 100px; /* must match .ifm-main top */
+    }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+        display:block;
+        width: 300px;
+    }
+
+    /* Flexible table to contain iframe */
+    .tab {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        table-layout: static;
+        border: 0px;
+    }
+    
+    /* Ensures iframe fills the page properly */
+    td {
+        margin: 0px;
+        padding: 0px;
+    }
+
+</style>
 </head>
 <body>
-  <div class="page">
-    <header> <h1>Don's Clock</h1> </header>
 
-    <h4>
-        The time is:<br>
-        <span id="clock">Clock goes here</span>
-    </h4>
+<nav class="floating-menu">
+    <table>
+        <tr>
+            <td>
+                <img src="face19.png" alt="Well hi there!" height="80">
+            </td>
+            <td>
+<!-- Drop Down Menu -->
+                <div class="dropdown">
+                    <button onclick="dropButton()" class="dropbtn">Menu</button>
+                    <div id="drop1" class="dropdown-content">
+                        <a class="dropHeader">Projects (Language[s])</a>
+                        <a href="JSI.html" target="ifm">JSpaceD Invaders (JavaScript  / HTML5)</a>
+                        <a href="BrickD.html" target="ifm">Brick'D (JavaScript / HTML5)</a>
+                        <a href="clock.html" target="ifm">Clock 12/24-hr display (JavaScript / CSS)</a>
+                        <a href="tip.html" target="ifm">Tipping Calculator (JavaScript / CSS)</a>
+                        <a class="dropHeader">Personal Projects</a>
+                        <a href="theTrainRide.html" target="ifm">Short Story: The Train Ride</a>
+                        <a class="dropHeader">More about me</a>
+                        <a href="history.html" target="ifm">History</a>
+                        <a href="about.html" target="ifm">About</a>
+                        <a href="contact.html" target="ifm">Contact Me</a>
+                    </div>
+                </div>
+<!-- /Drop Down Menu -->
+            </td>
+        </tr>
+    </table>
+</nav>
 
-    <blockquote id="timeEvent">Time message is shown here</blockquote>
-
-    <button id="milTimeButton">Military Time!</button><BR>
-
-
-    <br>
-    <button id="playTimeButton">Play Time!</button>
-
-    <footer> <p>Adapt, Modify, Refine</p> </footer>
-  </div>
-
+<table class='tab'>
+    <tr>
+        <td height=100px>Congratulations. You found a hidden easter egg... or a bug...</td>
+    </tr>
+    <tr>
+        <td><iframe src="theTrainRide.html" width="100%"" height="100%" frameborder="0" name='ifm'></iframe></td>
+    </tr>
+</table>
 <script>
-var wakeuptime = 7;
-var noon = 12;
-var lunchtime = 12;
-var siestatime = lunchtime + 2;
-var playtime;
-var milTime = true;
-var evening = 18;
+// When the user clicks on the button, toggle between hiding and showing the dropdown content
+function dropButton() {
+        document.getElementById("drop1").classList.toggle("show");
+}
 
-// Getting it to show the current time on the page
-var showCurrentTime = function(){
-    // display the string on the webpage
-    var clock = document.getElementById('clock');
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var ampm = "am";
- 
-    // Set hours
-	if (hours >= noon){
-	    ampm = "pm";
-	}
-    if (hours > noon && !milTime){ //consider military time option
-	    hours = hours - 12;
-	}
- 
-    // Set Minutes
-    if (minutes < 10){
-        minutes = "0" + minutes;
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
     }
- 
-    // Set Seconds
-    if (seconds < 10){
-        seconds = "0" + seconds;
-    }
- 
-    // put together the string that displays the time
-    clock.innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
-};
-
-// Getting the clock to increment on its own and change out messages and pictures
-var updateClock = function() 
-{
-    var time = new Date().getHours();
-    var messageText;
-    var timeEventJS = document.getElementById("timeEvent");
-
-    switch(time) {
-        case playtime:
-            messageText = "Let's have fun!"
-        break;
-        case wakeuptime:
-            messageText = "Get up!"
-        break;
-        case lunchtime:
-            messageText = "Time for lunch!"
-        break;
-        case siestatime:
-            messageText = "Shh... siesta time."
-        break;
-        default:
-            if (time < noon) {
-                messageText = "Good morning!"
-            } else {
-                messageText = "Good afternoon!"
-            }
-    }
-    timeEventJS.innerText = messageText;
-    showCurrentTime();
-};
-updateClock();
-
-// Getting the clock to increment once a second
-setInterval(updateClock,1000);
-
-// Getting the Military Button To Work
-var milButton = document.getElementById("milTimeButton");
-var milEvent = function(){
-    if (milTime){
-        milTime = false;
-        milTimeButton.innerText = "Military Time";
-        playTimeButton.style.backgroundColor = "#0A8DAB";
-    } else {
-        milTime = true;
-        milTimeButton.innerText = "Standard Time";
-        milTimeButton.style.backgroundColor = "#222";
-    }
-};
-
-milButton.addEventListener("click", milEvent);
-milEvent(); 
-
-// Getting the Play Time Button To Work
-var playButton = document.getElementById("playTimeButton");
-var playEvent = function(){
-    if (playtime < 0){
-        playtime = new Date().getHours();
-        playTimeButton.innerText = "Play Time Over!";
-        playTimeButton.style.backgroundColor = "#0A8DAB";
-    } else {
-        playtime = -1;
-        playTimeButton.innerText = "Play Time!";
-        playTimeButton.style.backgroundColor = "#222";
-    }
-};
-
-playButton.addEventListener("click", playEvent);
-playEvent(); 
-
-// Activates Wake-Up selector
-var wakeUpTimeSelector =  document.getElementById("wakeUpTimeSelector");
-var wakeUpEvent = function(){
-    wakeuptime = wakeUpTimeSelector.value;
-};
-
-wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
-
-
-// Activates Lunch selector
-var lunchTimeSelector =  document.getElementById("lunchTimeSelector");
-var lunchEvent = function(){
-    lunchtime = lunchTimeSelector.value;
-};
-
-lunchTimeSelector.addEventListener("change", lunchEvent);
-
-
-// Activates siesta-Time selector
-var siestaTimeSelector =  document.getElementById("siestaTimeSelector");
-var siestaEvent = function(){
-    siestatime = siestaTimeSelector.value;
-};
-
-siestaTimeSelector.addEventListener("change", siestaEvent);
-
+  }
+}
 </script>
 </body>
 </html>

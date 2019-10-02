@@ -14,11 +14,12 @@
     text-decoration: none;
     color: #ccc;
 }
-/*
+
+
 body{
-    background-color: #aaaaaa;
+    background-color: #FFFFFF;
 }
-*/
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -27,7 +28,6 @@ body{
     max-width: 1550px;
     padding-top: .5rem;
     width: 93%;
-
 }
 
 .main-header a{
@@ -74,6 +74,7 @@ body{
 
 .main-contents{
     flex: auto;
+    text-align: center;
 }
 
 .main-contents h2{
@@ -144,7 +145,7 @@ body{
     letter-spacing: 3px;
     margin-bottom: 15px;
     opacity: 0;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
     transition-delay: 130ms;
 }
@@ -192,16 +193,15 @@ body{
     opacity: 1;
 }
 
-
 /*** Just getting silly now ***************************/
 .wrapper.active p{
-     color: rgb(50, 101, 134);
+     color: rgb(255, 255, 255);/* 50, 101, 134 */
                transition-delay: 150ms;
      transition-duration: 350ms;
 }
 
 .main-footer.active span{
-     color: rgb(50, 101, 134);
+     color: rgb(255, 101, 134);
           transition-duration: 350ms;
 }
 
@@ -214,17 +214,19 @@ body{
                     <nav>
                         <div class="masthead active-element">
                             <h1>Don Torres</h1>
+                            <!-- This section creates the "hamburger" icon-->
                             <div id="menu-toggle" class="menu-toggle active-element">
                                 <div class="one"></div>
                                 <div class="two"></div>
                                 <div class="three"></div>
                             </div>
+                            <!-- End of creating the "hamburger" icon-->
                         </div>
                         <div class="main-nav-list active-element">
                             <ul>
-                                <li><a href="clock.html">Don's Clock</a></li>
-                                <li><a href="tip.html">Tip Calculator</a></li>
-                                <li><a href="JSI.html">JSpaceD Invaders</a></li>
+                                <li><a href="clock.html" target="inframe">Don's Clock</a></li>
+                                <li><a href="tip.html" target="inframe">Tip Calculator</a></li>
+                                <li><a href="JSI.html" target="inframe">JSpaceD Invaders</a></li>
                                 <li><a href="about.html" class="active-link">About</a></li>
                                 <li><a href="mailto:drtor82@gmail.com">Contact Me</a></li>
                             </ul>
@@ -233,8 +235,8 @@ body{
                 </header>
                 <main class="main-contents">
                     <h2>About</h2>
-                     <p>First paragraph</p>
-                    <p>This is where the main information goes.</p>
+                    <p>This is where the main information goes. The sizing of the box should be automatic but you never know how these things go, you know?</p>
+                    <iframe src="theTrainRide.html" height="100%" width="75%" name="inframe"></iframe>
                 </main>
                 <footer class="main-footer active-element">Footer note(s)</footer>
             </div>
@@ -243,14 +245,11 @@ body{
 var menuToggle = document.querySelector("#menu-toggle");
 var activeElements = document.querySelectorAll(".active-element");
 var toggledMenu = menuToggle.addEventListener("click", function(){
-     // forEach is not supported in IE11
-  // activeElements.forEach(function(e){
-  //     e.classList.toggle("active");
-  // });
      for(var activated = 0; activated < activeElements.length; activated++){
           activeElements[activated].classList.toggle("active");
      }
-})
+});
+
 </script>
 </body>
 </html>

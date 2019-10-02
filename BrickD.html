@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Don's Brickbreaker - Gamedev Canvas Workshop</title>
+
+    <style>
+    	* { padding: 0; margin: 0; }
+
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<center>
+<h1>BrickD</h1>
+by Don Torres<BR>
+
+<canvas id="myCanvas" width="640" height="480" >
+</canvas>
+
+<h3>Game Controls:</h3>
+<ul>
+<li> Up Arrow : Starts the game</li>
+<li> Down Arrow : Pauses the game</li>
+<li> Left Arrow : Moves the paddle left</li>
+<li> Right Arrow : Moves the paddle right</li>
+<li> The Paddle will also follow the mouse arrow</li>
+</ul>
+</center>
+ 
+<script> // JavaScript code goes here
+
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var beginGame = false;
+var endDelay = 50;
+var score = 0;
+var lives = 3;
+
+var ballRadius = 10;
+var x = canvas.width / 2;
+var y = canvas.height - 30;
+var dx = 2;
+var dy = -2;
+
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width - paddleWidth) / 2;
+var paddleSpeed = 4;
+
+var rightPressed = false;
+var leftPressed = false;
+
+var brickRowCount = 10;
+var brickColumnCount = 7;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+var brickClear = false;
+
+
+var bricks = [];
+for (var c = 0; c < brickColumnCount; c++) {
+    bricks[c] = [];
+    for (var r = 0; r < brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0, status: 1 };
+    }
+}
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function keyDownHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if (e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+    else if (e.key == "Up" || e.key == "ArrowUp") {
+        beginGame = true;
+    }
+    else if (e.key == "Down" || e.key == "ArrowDown") {
+        beginGame = false;
+    }
+}
+
+function keyUpHandler(e) {
+    if (e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if (e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
+
+function mouseMoveHandler(e) {
+  if (beginGame == true) {
+    var relativeX = e.clientX - canvas.offsetLeft;
+    if(relativeX > 0 && relativeX < canvas.width) {
+        paddleX = relativeX - paddleWidth/2;
+    }
+  }
+}
+
+function collisionDetection() {
+    for (var c = 0; c < brickColumnCount; c++) {
+        for (var r = 0; r < brickRowCount; r++) {
+            var b = bricks[c][r];
+            if (b.status == 1) {
+                if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+                    dy = -dy; // Changes ball y direction (make obsolete in v1.1)
+			//make a side hit detection (add for v1.1)
+                    b.status = 0;
+                    score++;
+                    if (score == brickRowCount*brickColumnCount) {
+                      brickClear = true;
+                    }
+                }
+            }
+        }
+    }
+}
+
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20);
+}
+function drawLives() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+}
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawBricks() {
+    for (var c = 0; c < brickColumnCount; c++) {
+        for (var r = 0; r < brickRowCount; r++) {
+            if (bricks[c][r].status == 1) {
+                var brickX = (c * (brickWidth + brickPadding)) + brickOffsetLeft;
+                var brickY = (r * (brickHeight + brickPadding)) + brickOffsetTop;
+                bricks[c][r].x = brickX;
+                bricks[c][r].y = brickY;
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                ctx.fillStyle = "#FF5555";
+                ctx.fill();
+                ctx.closePath();
+            }
+        }
+    }
+}
+
+function drawBG() {
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+function draw() {
+    drawBG();
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    collisionDetection();
+  if (beginGame == true) {
+
+    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if (y + dy < ballRadius) {
+        dy = -dy;
+    }
+    else if (y + dy > canvas.height - ballRadius - (paddleHeight/2)) {
+        if (x > paddleX && x < paddleX + paddleWidth &&y<canvas.height-(paddleHeight/2)) {
+          if (dy > 0) {
+                dy = -dy;
+          }
+        }
+        else {
+          if (endDelay > 0) {
+            endDelay--;
+          } else {
+            lives--;
+            if(!lives) {
+              alert("GAME OVER");
+              document.location.reload();
+              clearInterval(interval); // Needed for Chrome to end game
+            } else {
+                alert("OH NO! Good thing you have another life");
+                x = canvas.width/2;
+                y = canvas.height-30;
+                dx = 2;
+                dy = -2;
+                leftPressed = false;
+                rightPressed = false;
+                paddleX = (canvas.width-paddleWidth)/2;
+                beginGame = false;
+                endDelay = 50; 
+            }
+          }
+        }
+    }
+
+    if (score == brickRowCount*brickColumnCount) {
+      if (endDelay > 0) {
+        endDelay--;
+      } else {
+        alert("You Win!");
+        document.location.reload();
+        clearInterval(interval); // Needed for Chrome to end game
+      }
+    }
+
+    if (rightPressed && paddleX < canvas.width - paddleWidth) {
+        paddleX += paddleSpeed;
+    }
+    else if (leftPressed && paddleX > 0) {
+        paddleX -= paddleSpeed;
+    }
+
+    x += dx;
+    y += dy;
+  }
+}
+
+var interval = setInterval(draw, 10); //screen refreshes at 10ms intervals
+
+</script>
+</body>
+</html>

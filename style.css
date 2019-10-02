@@ -10,7 +10,6 @@ blockquote:before { content: '"'; }
 blockquote:after { content: '"'; }
 
 body {
-    background-color: #0064ff;
     font: 14px/26px 'Bungee', Helvetica, Arial, sans-serif;
     color: #222;
     margin: 0px;
@@ -21,7 +20,7 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     display: block;
-    margin: 30px auto;
+    margin: 0px auto;
     background: #222;
     border-radius: 5px;
     width: 300px;
