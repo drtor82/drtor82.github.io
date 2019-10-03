@@ -10,7 +10,8 @@ blockquote:before { content: '"'; }
 blockquote:after { content: '"'; }
 
 body {
-    font: 14px/26px 'Bungee', Helvetica, Arial, sans-serif;
+    font-size: 14px/26px;
+    font-family: 'Bungee', sans-serif;
     color: #222;
     margin: 0px;
     padding: 0px;
@@ -25,7 +26,7 @@ button {
     border-radius: 5px;
     width: 300px;
     height: 50px;
-    font-family: 'Bungee', cursive;
+    font-family: 'Bungee', sans-serif;
     font-size: 18px;
     color: #fff;
     border: none;
@@ -69,7 +70,7 @@ h1 {
 h4 {
     text-align: center;
     font-size: 21px;
-    font-family: 'Bungee', cursive;
+    font-family: 'Bungee', sans-serif;
 }
 
 h4 #clock {
@@ -79,7 +80,7 @@ h4 #clock {
 }
 
 h1, h2, h3, h6 {
-    font-family: 'Bungee Shade', cursive;
+    font-family: 'Bungee Shade', sans-serif;
 }
 
 .page {
