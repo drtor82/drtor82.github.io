@@ -4,7 +4,6 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
-
     /* Dropdown Button */
     .dropbtn {
         background-color: #3498DB;
@@ -45,7 +44,7 @@
     }
 
     /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
+    .dropdown-content .alink:hover {
         background-color: #dddddd
     }
 
@@ -66,6 +65,7 @@
         height: 100px; /* must match .ifm-main top */
     }
 
+    
     /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
     .show {
         display:block;
@@ -94,7 +94,7 @@
 <body>
 
 <nav class="floating-menu">
-    <table>
+    <table width="100%">
         <tr>
             <td>
                 <img src="face19.png" alt="Well hi there!" height="80">
@@ -104,18 +104,17 @@
                 <div class="dropdown">
                     <button onclick="dropButton()" class="dropbtn">Menu</button>
                     <div id="drop1" class="dropdown-content">
-                        <a href="intro.html" target="ifm">Home</a>
+                        <a class="alink" href="intro.html" target="ifm">Home</a>
                         <a class="dropHeader">Projects (Language[s])</a>
-                        <a href="JSI.html" target="ifm">JSpaceD Invaders (JavaScript  / HTML5)</a>
-                        <a href="BrickD.html" target="ifm">Brick'D (JavaScript / HTML5)</a>
-                        <a href="clock.html" target="ifm">Clock 12/24-hr display (JavaScript / CSS)</a>
-                        <a href="tip.html" target="ifm">Tipping Calculator (JavaScript / CSS)</a>
+                        <a class="alink" href="JSI.html" target="ifm">JSpaceD Invaders (JavaScript  / HTML5)</a>
+                        <a class="alink" href="BrickD.html" target="ifm">Brick'D (JavaScript / HTML5)</a>
+                        <a class="alink" href="clock.html" target="ifm">Clock 12/24-hr display (JavaScript / CSS)</a>
+                        <a class="alink" href="tip.html" target="ifm">Tipping Calculator (JavaScript / CSS)</a>
                         <a class="dropHeader">Personal Projects</a>
-                        <a href="theTrainRide.html" target="ifm">Short Story: The Train Ride</a>
+                        <a class="alink" href="theTrainRide.html" target="ifm">Short Story: The Train Ride</a>
                         <a class="dropHeader">More about me</a>
-                        <a href="history.html" target="ifm">History</a>
-                        <a href="about.html" target="ifm">About</a>
-                        <a href="mailto:drtor82@gmail.com" target="ifm">Contact Me</a>
+                        <a class="alink" href="about.html" target="ifm">About</a>
+                        <a class="alink" href="mailto:drtor82@gmail.com" target="ifm">Contact Me</a>
                     </div>
                 </div>
 <!-- /Drop Down Menu -->
