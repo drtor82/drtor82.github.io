@@ -1,0 +1,32 @@
+===
+Resize Logo Image and CSS
+border-radius: 50%; //Turns image round
+border-size: 10px; // Creates thick border
+border-type: solid; // Makes border solid
+		// See what other options do
+border-color: (use shadow color);
+
+border styles:
+dotted - Defines a dotted border
+dashed - Defines a dashed border
+solid - Defines a solid border
+double - Defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - Defines no border
+hidden - Defines a hidden border
+
+===
+Standardize the stylings of the whole portfolio's site. Load all CSS stylings into primary CSS file
+
+===
+//Dynamically readjust styling based on browser size
+
+@media (max-width: 350px) {
+	// max-width = breakpoint to apply CSS
+    :root {
+	//changes applied when conditions met
+    }
+}

@@ -1,23 +1,20 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            An Introduction to Don Torres
-        </title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        An Introduction to Don Torres
+    </title>
+<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
-
 body {
     text-align:center; /* for IE5.5+ */
 }
 
-.frame {
-    background-image: url("codeBG.jpg");
-    background-position: center center;
-    color: white;
-    font-size: 3em;
-    font-weight: bold;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;    
+#introBox {
+    background: #000050;
+    display: block;
 }
 
 .tab{
@@ -50,7 +47,7 @@ td {
             <th>Don Torres</th>
         </tr>
         <tr>
-            <td class="frame" height=400px> HTML5, JavaScript ES6, CSS</td>
+            <td><center><canvas id="introBox" width="600" height="400"><img id="avatar" src="avatar.png"></canvas></center></center></td>
         </tr>
         <tr>
             <td>
@@ -66,11 +63,121 @@ td {
         </tr>
     </table>
 
-
-
-
 <script>
+var canvas = document.getElementById("introBox");
+var ctx = canvas.getContext("2d");
+ctx.canvas.width = window.innerWidth *.75;
+var interval = setInterval(animator,10); // The lower the number, the faster the marquee
+var codes = [
+    "Math.floor(Math.random());",
+    "console.log('JavaScript');",
+    "for (let i=0; i < x; i++) {",
+    "function draw() {",
+    "document.getElementById('thisBox');",
+    "var ctx =canvas.getContext(\"2d\");",
+    "ctx.fillStyle = '#82CEEB';",
+    "#introBox {",
+    "<!DOCTYPE html>",
+    "codes.push(add2Array);",
+    "ctx.fillText(lft.code, lft.x, lft.y);",
+    "<title>Don Torres' Portfolio</title>"
+    ];
+var sizes = [
+    "12px Ariel",
+    "16px Ariel",
+    "20px Ariel",
+    "24px Ariel",
+    "28px Ariel"
+    ];
 
+function random400() {return Math.floor(Math.random()*400);}
+
+var left = [],right = [], buff = 450, flop = 0;
+for (let i = 0; i < 15; i++){
+    left.push({ "x": -buff, "y" : random400(), "wait" : random400()*4, "code" : codes[Math.floor(Math.random()*codes.length)],"size" : sizes[Math.floor(Math.random()*sizes.length)]});
+    right.push({ "x": window.innerWidth+buff, "y" : random400(), "wait" : random400()*4, "code" : codes[Math.floor(Math.random()*codes.length)], "size" : sizes[Math.floor(Math.random()*sizes.length)]});
+}
+
+function mLeft() {
+    for (let lft of left){
+        if (lft.x < canvas.width+10 && lft.wait === 0) {
+        lft.x++;
+    }
+    if (lft.x >= canvas.width+10 && lft.wait === 0) {
+        lft.wait = random400();
+        lft.x = -buff;
+        lft.y = random400();
+        lft.code = codes[Math.floor(Math.random()*codes.length)];
+        lft.size = sizes[Math.floor(Math.random()*sizes.length)];
+    }
+    if (lft.wait > 0) {
+        lft.wait--;
+    }
+    ctx.font = lft.size;
+    ctx.strokeStyle = "#82CEEB";
+    ctx.textAlign = "left";
+    ctx.strokeText(lft.code, lft.x, lft.y);
+    }
+}
+
+function mRight() {
+    for (let rht of right){
+        if (rht.x > -10 && rht.wait === 0) {
+            rht.x--;
+        }
+        if (rht.x <= -10 && rht.wait === 0) {
+            rht.wait = random400();
+            rht.x = canvas.width+buff;
+            rht.y = random400();
+            rht.code = codes[Math.floor(Math.random()*codes.length)];
+            rht.size = sizes[Math.floor(Math.random()*sizes.length)];
+        }
+        if (rht.wait > 0) {
+            rht.wait--;
+        }
+        ctx.font = rht.size;
+        ctx.strokeStyle = "#82CEEB";
+        ctx.textAlign = "right";
+        ctx.strokeText(rht.code, rht.x, rht.y);
+    }
+}
+
+function filler() {
+    ctx.fillStyle = "#000020";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    //TODO: fade edges to background
+}
+
+function feature() {
+//    console.log(window.innerWidth);
+    if (window.innerWidth >= 1050) {
+        ctx.font = "80px Bungee";
+    } else {
+        ctx.font = "60px Bungee";
+    }
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#D3D3D3";
+    ctx.strokeStyle = "#0047AB";
+    ctx.fillText("JS ES6",20,325);
+    ctx.strokeText("JS ES6",20,325);
+    ctx.fillText("CSS3",20,100);
+    ctx.strokeText("CSS3",20,100);
+    ctx.textAlign = "right";
+    ctx.fillText("HTML5",canvas.width-20,100);
+    ctx.strokeText("HTML5",canvas.width-20,100);
+    ctx.fillText("Python",canvas.width-20,325);
+    ctx.strokeText("Python",canvas.width-20,325);
+}
+
+function animator() {
+    ctx.canvas.width = window.innerWidth * .75;
+    //Set animation from left to right
+    filler();
+    mLeft();
+    ctx.drawImage(document.getElementById("avatar"),canvas.width/2 - 225,0);
+    mRight();
+    feature();
+}
 </script>
 </body>
 </html>
