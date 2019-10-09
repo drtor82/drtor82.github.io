@@ -30,6 +30,7 @@ button {
     font-size: 18px;
     color: #fff;
     border: none;
+    padding: 10px 0;
 
 }
 
@@ -55,11 +56,10 @@ header{
 }
 
 h1 {
-    background: #000040;
+    background: #1F030C;
     color: white;
     margin: 0;
-    padding: 10px;
-    text-align: center;
+    padding: 10px 100px;
     text-transform: uppercase;
     font-size: 18px;
     font-weight: normal;
@@ -80,7 +80,7 @@ h4 #clock {
 }
 
 h1, h2, h3, h6 {
-    font-family: 'Bungee', sans-serif;
+    font-family: 'Bungee Shade', sans-serif;
 }
 
 .page {
@@ -96,5 +96,6 @@ table.center {
     margin-right:auto;
   }
 
-
+<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
 
