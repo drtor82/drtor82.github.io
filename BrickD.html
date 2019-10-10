@@ -9,30 +9,51 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
     * { padding: 0; margin: 0; }
-  	canvas { background: #eee; display: block; margin: 0 auto; }
+
+    body {
+        background-color: #0047AB;
+    }
+  	canvas { 
+        background: #eee;
+        display: block;
+        margin: 0 auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    h1 {
+        width: 664px;
+    }
+
+    table {
+        background-color: #D3D3D3;
+    }
+
+    td {
+        text-align: center;
+    }
 </style>
 </head>
 <body>
+    <center>
+    <h1>BrickD</h1>
 
-<center>
-<h1>BrickD</h1>
-by Don Torres<BR>
-
-<canvas id="myCanvas" width="640" height="480" >
-</canvas>
-
-<h3>Game Controls:</h3>
-<ul>
-<li> Up Arrow : Starts the game</li>
-<li> Down Arrow : Pauses the game</li>
-<li> Left Arrow : Moves the paddle left</li>
-<li> Right Arrow : Moves the paddle right</li>
-<li> The Paddle will also follow the mouse arrow</li>
-</ul>
-</center>
- 
-<script> // JavaScript code goes here
-
+    <table>
+    <tr>
+        <td>
+            by Don Torres
+            <canvas id="myCanvas" width="640" height="480"></canvas>
+            <h3>Game Controls:</h3>
+            Up Arrow : Starts the game<br>
+            Down Arrow : Pauses the game<br>
+            Left Arrow : Moves the paddle left<br>
+            Right Arrow : Moves the paddle right<br>
+            The Paddle will also follow the mouse arrow
+        </td>
+    </tr>
+    </table>
+    </center>
+<script>
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");

@@ -59,7 +59,7 @@ td {
                     <a href="pet.pdf">Peter Muller</a> from <a href="http://www.galvanize.com" target="GHR">Galvanize</a> and <a href="http://www.codetenderloin.org" target="CT">Code Tenderloin</a>'s Code Ramp++ program.
                 </p>
                 <p>
-                    <a id="LinkTest" title="Any Title" href="#" onclick="winston(); return false; ">Winston Yee</a> - Senior DevOps Engineer at <a href="https://www.madison-reed.com">Madison Reed</a>
+                    <a href="#" onclick="winston(); return false; ">Winston Yee</a> - Senior DevOps Engineer at <a href="https://www.madison-reed.com" target="MR">Madison Reed</a>
                 </p>
                 <a href="https://www.linkedin.com/in/drtorres82/" target="LI">LinkedIN</a>
             </td>
@@ -79,11 +79,20 @@ var codes = [
     "document.getElementById('thisBox');",
     "var ctx =canvas.getContext(\"2d\");",
     "ctx.fillStyle = '#82CEEB';",
+    "ctx.strokeStyle = '#000040';",
     "#introBox {",
     "<!DOCTYPE html>",
     "codes.push(add2Array);",
     "ctx.fillText(lft.code, lft.x, lft.y);",
-    "<title>Don Torres' Portfolio</title>"
+    "<title>Don Torres' Portfolio</title>",
+    "Code Tenderloin",
+    "Code Ramp",
+    "Code Ramp++",
+    "Udacity",
+    "freeCodeCamp",
+    "const awesomeTeacher = peterMuller;",
+    "const awesomeTeacher = jacquiWatts;",
+    "const awesomeTeacher = winstonYee;"
     ];
 var sizes = [
     "12px Ariel",
@@ -95,8 +104,8 @@ var sizes = [
 
 function random400() {return Math.floor(Math.random()*400);}
 
-var left = [],right = [], buff = 450, flop = 0;
-for (let i = 0; i < 15; i++){ // x: -buff / window.innerWidth+buff
+var left = [],right = [], buff = 450;
+for (let i = 0; i < 12; i++){ // x: -buff / window.innerWidth+buff
     left.push({ "x": Math.floor(Math.random()*window.innerWidth), "y" : random400(), "wait" : 0, "code" : codes[Math.floor(Math.random()*codes.length)],"size" : sizes[Math.floor(Math.random()*sizes.length)]});
     right.push({ "x": Math.floor(Math.random()*window.innerWidth), "y" : random400(), "wait" : 0, "code" : codes[Math.floor(Math.random()*codes.length)], "size" : sizes[Math.floor(Math.random()*sizes.length)]});
 }
