@@ -2,7 +2,6 @@ Refine the About Me Section
 Explain the Adapt, Modify, Refine
 Rewrite site in first person
 Create & Post Beginner Python Project
-Winston Reference to PDF
 
 Add skills used on each project page
     Skills Implemented in projects so far:
