@@ -47,19 +47,19 @@ td {
             <th>Don Torres</th>
         </tr>
         <tr>
-            <td><center><canvas id="introBox" width="600" height="400"><img id="avatar" src="avatar.png"></canvas></center></td>
+            <td><center><canvas id="introBox" width="600" height="400"><img id="avatar" src="avatar.svg"></canvas></center></td>
         </tr>
         <tr>
             <td>
                 <h3>See what others have to say about Don</h3>
                 <p>
-                    <a href="jac.pdf">Jacqueline Watts</a>, Lead Instructor, from <a href="http://www.codetenderloin.org" target="CT">Code Tenderloin</a>'s Code Ramp program.
+                    <a href="jacquiWatts.pdf">Jacqueline Watts</a>, Lead Instructor, from <a href="http://www.codetenderloin.org" target="CT">Code Tenderloin</a>'s Code Ramp program.
                 </p>
                 <p>
-                    <a href="pet.pdf">Peter Muller</a> from <a href="http://www.galvanize.com" target="GHR">Galvanize</a> and <a href="http://www.codetenderloin.org" target="CT">Code Tenderloin</a>'s Code Ramp++ program.
+                    <a href="peterMuller.pdf">Peter Muller</a> from <a href="http://www.galvanize.com" target="GVN">Galvanize</a> and <a href="http://www.codetenderloin.org" target="CT">Code Tenderloin</a>'s Code Ramp++ program.
                 </p>
                 <p>
-                    <a href="#" onclick="winston(); return false; ">Winston Yee</a> - Senior DevOps Engineer at <a href="https://www.madison-reed.com" target="MR">Madison Reed</a>
+                    <a href="winstonYee.pdf">Winston Yee</a> - Senior DevOps Engineer at <a href="https://www.madison-reed.com" target="MR">Madison Reed</a>
                 </p>
                 <a href="https://www.linkedin.com/in/drtorres82/" target="LI">LinkedIN</a>
             </td>
@@ -186,14 +186,11 @@ function animator() {
     //Set animation from left to right
     filler();
     mLeft();
-    ctx.drawImage(document.getElementById("avatar"),canvas.width/2 - 250,0);
+    ctx.drawImage(document.getElementById("avatar"),canvas.width/2 - 225,0);
     mRight();
     feature();
 }
 
-function winston() {
-    alert("As an instructor at Code Ramp (Code Tenderloin), I have worked closely with Don for 6 straight weeks. I have no doubt that Don would make an excellent Software Engineer. He has a good grasp of programming concepts and logic. He has the ability to break down complex problems into working solutions. Many times he would finish his assignments early and help other students with their work. Don is naturally a curious person who looks into how to make his code more efficient. He would benchmark different solutions to find the most performant one. Again, I highly recommend Don for a Software Engineering role. There is no doubt he will be an asset to that team.\n\nWinston Yee - Senior DevOps Engineer at Madison Reed");
-}
 </script>
 </body>
 </html>
