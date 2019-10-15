@@ -1,6 +1,7 @@
 Check padding on all pages
 
 fix scrolling issue with games
+	disable scrolling when focused on canvas
 
 Source code links to repositories
 
