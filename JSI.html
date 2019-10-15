@@ -20,6 +20,14 @@ canvas {
     padding-right: 20px;
 }
 
+canvas:focus {
+    /*fix scrolling so screen does not move during gameplay*/
+}
+
+#container {
+    width: 684px;
+}
+
 h1 {
     width: 664px;
 }
@@ -39,6 +47,7 @@ td {
     <audio id="ufoInOut"><source src="ufoInOut.webm" type="audio/webm"></audio>
     <audio id="ufoField"><source src="ufoField.webm" type="audio/webm"></audio>
 <center>
+    <div id="container">
     <h1>JSpaceD Invaders</h1>
     <table width="640">
         <tr>
@@ -52,10 +61,10 @@ td {
             </td>
 -->            <td>
                     <h3>Game Controls:</h3>
-                    Up Arrow : Starts / Pauses the game
-                    "A" or Left Arrow : Moves the Gunship left
-                    "D" or Right Arrow : Moves the Gunship right
-                    Space Bar or Down Arrow : Shoots Missile
+                    "G" or "H" : Starts / Pauses the game<br>
+                    "A" or Left Arrow : Moves the Gunship left<br>
+                    "D" or Right Arrow : Moves the Gunship right<br>
+                    "K" : Shoots Missile<br>
                     Only one missile can be fired at a time
             </td>
 <!--            <td>
@@ -64,6 +73,7 @@ td {
 -->        </tr>
     </table>
     <footer> <p>Adapt, Modify, Refine</p> </footer>
+    </div>
 </center>
 
 <script> /////////////// Begin Game Code Here ///////////////
@@ -75,6 +85,7 @@ td {
     var canvas = document.getElementById("gameWindow");
     var ctx = canvas.getContext("2d");
     var playGame = false; // Game Paused or Running
+    var resetting = false;
     // var endDelay = 50 // ms*10 to endScreen
     var sounds = true;
     var aMove = document.getElementById("aMove");
@@ -152,10 +163,10 @@ function keyDownHandler(e) {
     else if (e.key == "Left" || e.key == "ArrowLeft" || e.key == "a") {
       leftPressed = true;
     }
-    else if (e.key == "Up" || e.key == "ArrowUp") {
+    else if (e.key == "g" || e.key == "h") {
         playGame == false ? playGame = true : playGame = false;
 	}
-    else if (e.key == "Down" || e.key == "ArrowDown" || e.key == " ") {
+    else if (e.key == "k") {
         if (shooting == false && playGame == true){
             shooting = true;
             shotX = playerX;
@@ -170,10 +181,12 @@ function keyDownHandler(e) {
             }
         }
     }
-
+    else if (e.key == "r") {
+        location.reload();
+    }
     ////////////////// DEBUG CONTROLS TO REMOVE LATER /////////////////////////////////////
     else if (e.key == "p") { // Stops game for debugging
-      clearInterval(interval);
+        clearInterval(interval);
     }
     ////////////////////// END DEBUG CONTROLS //////////////////////////////////
 }
@@ -259,6 +272,11 @@ function alienAdvance(){
 
 function moveAliens(){
 if (playGame){
+    if (!aliensLeft && resetting=="false"){
+        alert("Level Cleared!");
+        resetting = true;
+        location.reload();
+    }
     alienSpeed = alco * aliensLeft;
     if (alienWait){
         alienWait--;
@@ -275,10 +293,6 @@ if (playGame){
             if (!aliensAdvancing) alienDir === "right" ? alienX++ : alienX--;
         }
     } else alienWait = alienSpeed;
-    if (!aliensLeft){
-        alert("Level Cleared!");
-        location.reload();
-    }
 }}
 
 function bonusAlien (){

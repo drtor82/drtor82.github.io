@@ -1,6 +1,6 @@
 Check padding on all pages
 
-Debug Tip Calculator
+fix scrolling issue with games
 
 Source code links to repositories
 
