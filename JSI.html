@@ -7,7 +7,30 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
     * { padding: 0; margin: 0;}
-    canvas { background: rgb(000, 000, 000); display: block; margin: 0 auto; }
+
+body {
+    background-color: #0047AB;
+}
+
+canvas { 
+    background: #eee;
+    display: block;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    width: 664px;
+}
+
+table {
+    background-color: #D3D3D3;
+}
+
+td {
+    text-align: center;
+}
 </style>
 </head>
 <body>
@@ -17,30 +40,30 @@
     <audio id="ufoField"><source src="ufoField.webm" type="audio/webm"></audio>
 <center>
     <h1>JSpaceD Invaders</h1>
-    by Don Torres<br>
-        
-    <canvas id="gameWindow" width="640" height="480"></canvas>
-
-    <h3>Game Controls:</h3>
     <table width="640">
         <tr>
-            <td>
-                <!-- <button onclick = "soundFX(1)" type="button">Sound On</button> -->
-            </td>
-            <td>
-                <ul>
-                    <li>Up Arrow : Starts / Pauses the game</li>
-                    <li>"A" or Left Arrow : Moves the Gunship left</li>
-                    <li>"D" or Right Arrow : Moves the Gunship right</li>
-                    <li>Space Bar or Down Arrow : Shoots Missile</li>
-                    <li>Only one missile can be fired at a time</li>
-                </ul>
-            </td>
-            <td>
-                <!-- <button onclick="soundFX(0)" type="button">Sound Off</button> -->
+            <td>by Don Torres
+                <canvas id="gameWindow" width="640" height="480"></canvas>
             </td>
         </tr>
+        <tr>
+<!--            <td>
+                <button onclick = "soundFX(1)" type="button">Sound On</button>
+            </td>
+-->            <td>
+                    <h3>Game Controls:</h3>
+                    Up Arrow : Starts / Pauses the game
+                    "A" or Left Arrow : Moves the Gunship left
+                    "D" or Right Arrow : Moves the Gunship right
+                    Space Bar or Down Arrow : Shoots Missile
+                    Only one missile can be fired at a time
+            </td>
+<!--            <td>
+                <button onclick="soundFX(0)" type="button">Sound Off</button>
+            </td>
+-->        </tr>
     </table>
+    <footer> <p>Adapt, Modify, Refine</p> </footer>
 </center>
 
 <script> /////////////// Begin Game Code Here ///////////////
