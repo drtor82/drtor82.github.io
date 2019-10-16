@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Don's Blog Archive October 2019
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">        
+    <style>
+        #mycanvas {
+            background: var(--secondary);
+            display: inline-block;
+            float: right;
+        }
+        .page{
+        margin-left: auto;
+        margin-right: auto;    
+        max-width: 960px;
+        }
+        #starter {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <p>
+            <canvas id="mycanvas" width="200" height="150">console.log("Hello World!");</canvas>
+            <span id="starter">W</span>elcome to the first official blog of my portfolio. It is currently in beta and will likely stay that way due to realizing new ideas and implementing them. My primary focus is limiting the number of external dependencies needed to enjoy the content.
+        
+            <br><br>
+            For this blog entry, in particular, I had to dig through the whole website's coding and clean up a LOT of it. I spent much of my night creating the blog bar and debugging. It took me a minute to solve out why the blog menu would not format correctly. It turned out that the JavaScript control and an obsolete CSS code I did not notice were the causes of the issue.
+            <br><br>
+            After debugging, I realized how much cleaner I could make everything and spent most of the night sorting and clearing out redundant and obsolete codes.
+            <br><br>
+            Now that the website is running smoother, I can focus my attention on creating more content and improving the software that is already in place. I will still fix bugs as I find them.
+            <br><br>
+            Look for new content here shortly, starting with an always accessible Comment system. With that, you'll be able to leave your thoughts here, and I can use them to improve the user experience.
+        </p>
+    </div>
+    <script>
+        var canvas = document.getElementById("mycanvas");
+        var ctx = canvas.getContext("2d");
+        var cursorBlink = false;
+
+        function blink(){
+            ctx.fillStyle = "#000080"; // refer to style.css (--secondary)
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#82CEEB"; // refer to style.css (--banhed);
+            ctx.fillText("console.log('Hello World!');",8,24);
+            if (cursorBlink === true) {
+                cursorBlink = false;
+                ctx.fillText("|",8,45);
+            } else {
+                cursorBlink = true;
+            }
+            ctx.font = "12px Arial";
+            ctx.fillText("(This is done in Javascript)",8,142);
+        }
+
+        var interval = setInterval(blink,1000);
+    </script>
+</body>
+</html>

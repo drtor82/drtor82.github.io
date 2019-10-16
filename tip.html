@@ -18,12 +18,12 @@ body {
 <style>
 
 body {
-    background-color: #0064ff;
+    background-color: var(--primary);
 }
 
 #billamt {
   font-size: 14px;
-  background-color: #f7f7f7;
+  background-color: var(--negbg);
   width: 60%;
   padding: 5px 5px 8px 8px;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 button:hover {
-  background: #000040;
+  background: var(--secondary);
   border-bottom-color: #111;
 }
 
@@ -56,7 +56,9 @@ form input[type="text"] {
 
 input {
   padding-left: 20px;
+  margin-bottom: 10px;
 }
+
 p {
   padding-left: 20px;
 }
@@ -66,7 +68,7 @@ p {
   padding: 5px 5px 8px 8px;
   margin-left: 20px;
   color: #red;
-  background-color: #d3d3d3;
+  background-color: var(--negbg);
   font-size: 14px;
 }
 
@@ -145,9 +147,6 @@ p {
 <!-- <script type="text/javascript" src="tipcalculator.js"> -->
 <script>
 
-
-
-
 //Calculate Tip
 function calculateTip() {
   var billAmt = document.getElementById("billamt").value;
@@ -186,7 +185,6 @@ document.getElementById("each").style.display = "none";
 //click to call function
 document.getElementById("calculate").onclick = function() {
   calculateTip();
-
 };
 
 </script>
