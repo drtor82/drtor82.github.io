@@ -25,7 +25,6 @@ body {
 }
 
 th {
-    color: blue;
     text-shadow: 2px 1px slategray;
     text-align: center;
     font-family: 'bungee', sans-serif;
@@ -33,7 +32,6 @@ th {
 }
 
 td {
-    color: blue;
     text-align: center;
     font-family: 'bungee', sans-serif;
     font-size: 1.25em;
@@ -62,11 +60,30 @@ td {
                     <a href="winstonYee.pdf">Winston Yee</a> - Senior DevOps Engineer at <a href="https://www.madison-reed.com" target="MR">Madison Reed</a>
                 </p>
                 <a href="https://www.linkedin.com/in/drtorres82/" target="LI">LinkedIN</a>
+                <!-- commentBox-->
+                    <div id="comment" class="commentbox"></div>
+                <!-- /commentBox-->
             </td>
         </tr>
     </table>
 
+<!-- CommentBox installer-->
+    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+<!-- /CommentBox installer-->
+
 <script>
+// CommentBox Configure and Setup
+commentBox('5632013348372480-proj', {
+    className: 'commentbox', // the class of divs to look for
+    defaultBoxId: 'commentbox', // the default ID to associate to the div
+    tlcParam: 'tlc', // used for identifying links to comments on your page
+    backgroundColor: null, // CSS overrides
+    textColor: '#0047D3', // overrides CSS
+    subtextColor: '#000080', // overrides CSS
+});
+
+// Landing Box
+
 var canvas = document.getElementById("introBox");
 var ctx = canvas.getContext("2d");
 ctx.canvas.width = window.innerWidth *.75;
@@ -84,7 +101,7 @@ var codes = [
     "<!DOCTYPE html>",
     "codes.push(add2Array);",
     "ctx.fillText(lft.code, lft.x, lft.y);",
-    "<title>Don Torres' Portfolio</title>",
+    "<title>Don Torres</title>",
     "Code Tenderloin",
     "Code Ramp",
     "Code Ramp++",
@@ -113,6 +130,7 @@ for (let i = 0; i < 12; i++){ // x: -buff / window.innerWidth+buff
 }
 
 function mLeft() {
+    ctx.textAlign = "left";
     for (let lft of left){
         if (lft.x < canvas.width+10 && lft.wait === 0) {
         lft.x++;
@@ -128,13 +146,12 @@ function mLeft() {
         lft.wait--;
     }
     ctx.font = lft.size;
-    ctx.strokeStyle = "#82CEEB";
-    ctx.textAlign = "left";
-    ctx.strokeText(lft.code, lft.x, lft.y);
+    ctx.fillText(lft.code, lft.x, lft.y);
     }
 }
 
 function mRight() {
+    ctx.textAlign = "right";
     for (let rht of right){
         if (rht.x > -10 && rht.wait === 0) {
             rht.x--;
@@ -150,9 +167,7 @@ function mRight() {
             rht.wait--;
         }
         ctx.font = rht.size;
-        ctx.strokeStyle = "#82CEEB";
-        ctx.textAlign = "right";
-        ctx.strokeText(rht.code, rht.x, rht.y);
+        ctx.fillText(rht.code, rht.x, rht.y);
     }
 }
 
@@ -187,6 +202,7 @@ function animator() {
     ctx.canvas.width = window.innerWidth * .75;
     //Set animation from left to right
     filler();
+    ctx.fillStyle = "#82CEEB";
     mLeft();
     ctx.drawImage(document.getElementById("avatar"),canvas.width/2 - 225,0);
     mRight();

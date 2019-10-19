@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        Don's Blog Archive October 2019
+        Don's Blog October 17, 2019
     </title>
     <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">        
@@ -12,18 +12,13 @@
             display: inline-block;
             float: right;
         }
-        .page{
-        margin-left: auto;
-        margin-right: auto;    
-        max-width: 960px;
-        }
-        #starter {
-            font-size: 24px;
+        #update {
+            font-size: 1.5em;
         }
     </style>
 </head>
 <body>
-    <div class="page">
+    <div class="blogPage">
         <p>
             <canvas id="mycanvas" width="200" height="150">console.log("Hello World!");</canvas>
             <span id="starter">W</span>elcome to the first official blog of my portfolio. It is currently in beta and will likely stay that way due to realizing new ideas and implementing them. My primary focus is limiting the number of external dependencies needed to enjoy the content.
@@ -31,14 +26,28 @@
             <br><br>
             For this blog entry, in particular, I had to dig through the whole website's coding and clean up a LOT of it. I spent much of my night creating the blog bar and debugging. It took me a minute to solve out why the blog menu would not format correctly. It turned out that the JavaScript control and an obsolete CSS code I did not notice were the causes of the issue.
             <br><br>
-            After debugging, I realized how much cleaner I could make everything and spent most of the night sorting and clearing out redundant and obsolete codes.
+            After debugging, I realized how much cleaner I could make everything and spent the rest of the night sorting and clearing out redundant and obsolete codes.
             <br><br>
             Now that the website is running smoother, I can focus my attention on creating more content and improving the software that is already in place. I will still fix bugs as I find them.
             <br><br>
             Look for new content here shortly, starting with an always accessible Comment system. With that, you'll be able to leave your thoughts here, and I can use them to improve the user experience.
         </p>
+        <p><span id="update">UPDATE!</span> The comment box is live and running. Please leave a comment below. Thank you!</p>
+        <div id="comment" class="commentbox"></div>
     </div>
+    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
     <script>
+    // CommentBox configuration & Setup
+        commentBox('5632013348372480-proj', {
+            className: 'commentbox', // the class of divs to look for
+            defaultBoxId: 'commentbox', // the default ID to associate to the div
+            tlcParam: 'tlc', // used for identifying links to comments on your page
+            backgroundColor: null, // CSS overrides
+            textColor: '#0047D3', // overrides CSS
+            subtextColor: '#000080', // overrides CSS
+        });
+    // /Commentbox
+
         var canvas = document.getElementById("mycanvas");
         var ctx = canvas.getContext("2d");
         var cursorBlink = false;
@@ -56,7 +65,7 @@
                 cursorBlink = true;
             }
             ctx.font = "12px Arial";
-            ctx.fillText("(This is done in Javascript)",8,142);
+            ctx.fillText("(This display is done in Javascript)",8,142);
         }
 
         var interval = setInterval(blink,1000);
