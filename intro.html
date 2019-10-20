@@ -5,7 +5,8 @@
     <title>
         An Introduction to Don Torres
     </title>
-<link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Covered+By+Your+Grace" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
 body {
@@ -25,15 +26,12 @@ body {
 }
 
 th {
-    text-shadow: 2px 1px slategray;
     text-align: center;
-    font-family: 'bungee', sans-serif;
     font-size: 2.5em;
 }
 
 td {
     text-align: center;
-    font-family: 'bungee', sans-serif;
     font-size: 1.25em;
 }
 
@@ -78,8 +76,8 @@ commentBox('5632013348372480-proj', {
     defaultBoxId: 'commentbox', // the default ID to associate to the div
     tlcParam: 'tlc', // used for identifying links to comments on your page
     backgroundColor: null, // CSS overrides
-    textColor: '#0047D3', // overrides CSS
-    subtextColor: '#000080', // overrides CSS
+    textColor: '#0047AB', // overrides CSS see style.css for hex codes
+    subtextColor: '#000080', // overrides CSS see style.css for hex codes
 });
 
 // Landing Box
@@ -102,14 +100,14 @@ var codes = [
     "codes.push(add2Array);",
     "ctx.fillText(lft.code, lft.x, lft.y);",
     "<title>Don Torres</title>",
-    "Code Tenderloin",
-    "Code Ramp",
-    "Code Ramp++",
-    "Udacity",
-    "freeCodeCamp",
-    "const awesomeTeacher = peterMuller;",
-    "const awesomeTeacher = jacquiWatts;",
-    "const awesomeTeacher = winstonYee;",
+    "'Code Tenderloin'",
+    "'Code Ramp'",
+    "'Code Ramp++''",
+    "'Udacity'",
+    "'freeCodeCamp'",
+    "const awesomeTeacher = 'peterMuller';",
+    "const awesomeTeacher = 'jacquiWatts';",
+    "const awesomeTeacher = 'winstonYee';",
     "<svg viewBox=\"0 0 600 600\">",
     "let root = document.documentElement;"
     ];
@@ -180,9 +178,9 @@ function filler() {
 function feature() {
 //    console.log(window.innerWidth);
     if (window.innerWidth >= 1050) {
-        ctx.font = "80px Bungee";
+        ctx.font = "80px Baloo";
     } else {
-        ctx.font = "60px Bungee";
+        ctx.font = "60px Baloo";
     }
     ctx.textAlign = "left";
     ctx.fillStyle = "#D3D3D3";
