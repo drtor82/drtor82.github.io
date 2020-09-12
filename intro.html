@@ -70,22 +70,12 @@ td {
 <!-- /CommentBox installer-->
 
 <script>
-// CommentBox Configure and Setup
-commentBox('5632013348372480-proj', {
-    className: 'commentbox', // the class of divs to look for
-    defaultBoxId: 'commentbox', // the default ID to associate to the div
-    tlcParam: 'tlc', // used for identifying links to comments on your page
-    backgroundColor: null, // CSS overrides
-    textColor: '#0047AB', // overrides CSS see style.css for hex codes
-    subtextColor: '#000080', // overrides CSS see style.css for hex codes
-});
 
-// Landing Box
 
 var canvas = document.getElementById("introBox");
 var ctx = canvas.getContext("2d");
 ctx.canvas.width = window.innerWidth *.75;
-var interval = setInterval(animator,10); // The lower the number, the faster the marquee
+
 var codes = [
     "Math.floor(Math.random());",
     "console.log('JavaScript');",
@@ -206,6 +196,19 @@ function animator() {
     mRight();
     feature();
 }
+var interval = setInterval(animator,10); // The lower the number, the faster the marquee
+
+// CommentBox Configure and Setup
+commentBox('5632013348372480-proj', {
+    className: 'commentbox', // the class of divs to look for
+    defaultBoxId: 'commentbox', // the default ID to associate to the div
+    tlcParam: 'tlc', // used for identifying links to comments on your page
+    backgroundColor: null, // CSS overrides
+    textColor: '#0047AB', // overrides CSS see style.css for hex codes
+    subtextColor: '#000080', // overrides CSS see style.css for hex codes
+});
+
+// Landing Box
 
 </script>
 </body>

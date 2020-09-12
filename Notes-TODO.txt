@@ -7,8 +7,6 @@ fix scrolling issue with games
 
 Source code links to repositories
 
-Clean UP CSS codes (delete obsoletes and overlaps)
-
 Refine the About Me Section
 Explain the Adapt, Modify, Refine
 Rewrite site in first person

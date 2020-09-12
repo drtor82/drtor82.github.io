@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Don's Screen Detector
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        #touchOnly {
+            background-color: blue;
+            display: block;
+            max-width: 300;
+            min-height: 300;
+            border-style: solid;
+            border-width: 5px;
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+<p>
+    This page is being used to detect the window size. It is the basis of determining the format for the rest of the website. It will not save the information. I intend to use this to help create more dynamic codes for this website.
+    <br><br>
+    Window Width: <span id="wide">Pixels Wide</span><br>
+    Window Height: <span id="high">Pixels Tall</span><br>
+    Window Ratio: <span id="ratio">Ratio</span><br>
+    There is a box under here that will only appear if the device is a touch screen:<BR>
+    <div id="touchOnly">THIS IS SOME RANDOM TEXT T O HELP LOCATE THE BOX</div>
+    This is under the box.
+
+</p>
+
+
+<!--    <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
+-->
+    <script>
+/* CommentBox configuration & Setup
+    commentBox('5678192635412480-proj', { // newBlog: Enter CommentBox.io ID code here
+        className: 'commentbox', // the class of divs to look for
+        defaultBoxId: 'commentbox', // the default ID to associate to the div
+        tlcParam: 'tlc', // used for identifying links to comments on your page
+        backgroundColor: null, // CSS overrides
+        textColor: '#0047D3', // overrides CSS
+        subtextColor: '#000080', // overrides CSS
+    });
+// /Commentbox */
+
+function measureSize() {
+    var pxWide = document.getElementById('wide');
+    var pxHigh = document.getElementById('high');
+    var pxRatio = document.getElementById('ratio');
+    pxWide.innerText = window.innerWidth;
+    pxHigh.innerText = window.innerHeight;
+    pxRatio.innerText = window.innerWidth/window.innerHeight;
+}
+window.addEventListener("resize", measureSize);
+measureSize();
+
+function touchtest() {
+
+    // Verified working Android
+    console.log("Upper Test", ("ontouchstart" in document.documentElement) || (navigator.MaxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+
+    var supportsTouch = false;
+    
+    if ('ontouchstart' in window) // iOS & android
+        supportsTouch = true;
+    else if(window.navigator.msPointerEnabled) // Win8
+        supportsTouch = true;
+    else if ('ontouchstart' in document.documentElement) // Controversal way to check touch support
+        supportsTouch = true;
+
+    if (supportsTouch) // Can register touchstart event?
+        this.addEventListener('touchstart', onTouchStart, false);
+    
+    console.log("lower test",supportsTouch);
+
+/* The following code hides an element if the device is not touchscreen [does not work on win10 touchscreens]
+    function is_touch_device() {
+ return (('ontouchstart' in window)
+      || (navigator.MaxTouchPoints > 0)
+      || (navigator.msMaxTouchPoints > 0));
+}
+
+if (!is_touch_device()) {
+ document.getElementById('touchOnly').style.display='none';
+}
+*/
+}
+touchtest();
+
+
+    </script>
+</body>
+</html>

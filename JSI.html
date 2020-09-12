@@ -12,6 +12,14 @@ body {
     background-color: var(--primary);
 }
 
+button {
+    width: 200px;
+    height: 200px;
+    background: #000080;
+    text-align: center;
+
+}
+
 canvas { 
     background: #eee;
     display: block;
@@ -23,6 +31,46 @@ canvas {
 canvas :focus {
     /*fix scrolling so screen does not move during gameplay*/
     background: #000080;
+}
+
+#leftButton {
+    background:none;
+    width: 200px;
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    top: 800px;
+    height: 200px;
+}
+
+#rightButton{
+    background: none;
+    width: 200px;
+    z-index: 1000;
+    position: fixed;
+    left: 205px;
+    top: 800px;
+    height: 200px;
+}
+
+#playButton {
+    background: none;
+    width: 200px;
+    z-index: 1000;
+    position: fixed;
+    right: 205px;
+    top: 800px;
+    height: 200px;
+}
+
+#shootButton {
+    background: none;
+    width: 200px;
+    z-index: 1000;
+    position: fixed;
+    right: 0px;
+    top: 800px;
+    height: 200px;
 }
 
 #container {
@@ -43,6 +91,10 @@ td {
 </style>
 </head>
 <body>
+    <nav id="leftButton"><button onclick="moveLeft()" class="gameButtonLeft">Move Left</button></nav>
+    <nav id="rightButton"><button onclick="moveRight()" class="gameButtonRight">Move Right</button></nav>
+    <nav id="playButton"><button onclick="playPause()" class="gameButtonPlay">PlayPause Game</button></nav>
+    <nav id="shootButton"><button onclick="shootButton()" class="gameButtonLeft">Shoot</button></nav>
     <audio id="aMove"><source src="aMove1.webm" type="audio/webm"></audio>
     <audio id="boom"><source src="boom.webm" type="audio/webm"></audio>
     <audio id="ufoInOut"><source src="ufoInOut.webm" type="audio/webm"></audio>
@@ -192,6 +244,7 @@ function keyDownHandler(e) {
     }
     ////////////////////// END DEBUG CONTROLS //////////////////////////////////
 }
+
 function keyUpHandler(e) {
     if (e.key == "Right" || e.key == "ArrowRight" || e.key == "d") {
         rightPressed = false;
@@ -199,6 +252,22 @@ function keyUpHandler(e) {
     else if (e.key == "Left" || e.key == "ArrowLeft" || e.key == "a") {
         leftPressed = false;
     }
+}
+
+function moveLeft {
+
+}
+
+function moveRight {
+
+}
+
+function playPause {
+
+}
+
+function shootButton {
+    
 }
 
 ///// ----- Update Game Status ----- /////
@@ -481,6 +550,7 @@ function game(){
         drawField();
         drawHMI();
 }
+
 
 
 </script>
