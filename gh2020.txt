@@ -1,23 +1,21 @@
 ----- Quick Notes -----
+
+The adventure starts in the country of Primmer. The city is the large capital, Axis, Built on long rolling hills.
+
 Here are the jobs available from the patron:
 
-1) A Small group of bandits have been harassing a nearby village.
-	Includes some salvage rights.
+1) A Small group of bandits have been harassing a nearby village. Includes some salvage rights.
 
-2) A group of merchants are asking for merchandise recovery.
-	Includes salvage rights of 1/2 of loot beyond merchandise recovery.
+2) A group of merchants are asking for merchandise recovery. Includes salvage rights of 1/2 of loot beyond merchandise recovery.
 
-3) A new landowner needs an area to be cleared of monsters.
-	Can't pay much, but full salvage rights are included.
+3) A new landowner needs an area to be cleared of monsters. Can't pay much, but full salvage rights are included.
 
-4) Scout some prospective land for a minor noble looking to buy it.
-	Promises good pay.
+4) Scout some prospective land for a minor noble looking to buy it. Promises good pay.
 
-5) Special Request. Please make an appointment for details.
-	VERY good benefits.
+5) Special Request. Please make an appointment for details. VERY good benefits.
 
 
------ What Everyone Knows ----- (updated as game plays and develops)
+----- What Everyone Knows Generally----- (updated as game plays and develops)
 
 The world is known as Gaia.
 
@@ -30,7 +28,7 @@ this level be gone. Until that happens, the Guardians will look over the world.
 
 It's mostly populated by Dwarves, Elves, Halflings, Humans, Half-Elves.
 Gnomes and Dragonborn are commonly heard of and are supposedly found in
-all sorts of places, but it is very uncommon to see one.
+all sorts of places, but it is uncommon to see one.
 
 Other races that are known:
 
@@ -38,49 +36,57 @@ Aasimar
 	Rarely found... Nothing seems to tie them together
 
 Arakocra
-	Fairly uncommon. Found mostly in Cliffside and in some harbors as
-	workers of some sort. Most are friendly-ish but wary of outsiders
-	and coarse in attitude.
+	Fairly uncommon. Found mostly in Cliffside and in some harbors as workers of some sort. Most are friendly-ish but wary of outsiders and coarse in attitude.
 
 Changling
 	You've heard of them but only as rumors... no one confirmed case
 
 Goliath
-	RELATIVELY common in the mountain areas. Open to outsiders, but expect
-	to participate in an "entry" ritual of some sort before much additional
-	social interaction with them. The exception to this is trade, but contact
-	will be limited.
+	RELATIVELY common in the mountain areas. Open to outsiders, but expect to participate in an "entry" ritual of some sort before much additional social interaction with them. The exception to this is trade, but contact will be limited.
 
 Grung	(Frog like humanoid)
-	In the swamp forests, not often seen, but often found by those who are
-	lost. They have no problem helping you find your way out... for a price.
+	In the swamp forests, not often seen, but often found by those who are lost. They have no problem helping you find your way out... for a price.
 
 Hybrid
 	You've heard of the "Hybrids" but you don't know anything beyond the name.
 
 Kenku
-	Mostly living on the outskirts of cities and large villages, they are most
-	common in areas where there is a high point. Many will work as messengers,
-	spies, and for the more shady of them, thieves. They are VERY good at what
-	they do.
+	Mostly living on the outskirts of cities and large villages, they are most common in areas where there is a high point. Many will work as messengers, spies, and for the more shady of them, thieves. They are VERY good at what they do.
 
 Loxodon (Elephant-like humanoid)
-	Found in plains and more often city outskirts, these creatures don't seem
-	too uncommon, but no one is willing to test them.
+	Found in plains and more often city outskirts, these creatures don't seem too uncommon in the west, but no one is willing to test them.
 
 Minotaur
-	Less myth than previously thought, they can be found near arenas and areas
-	where strength is appreciated.
+	Less myth than previously thought, they can be found near arenas and areas where strength is appreciated.
 
 Taxabi
 	Wanderers that go from place to place
 
 Tiefling
-	Found in small groups of "rough" areas. Many have turned to wandering in
-	the hopes of finding a place where they are not looked on with hesitation.
+	Found in small groups of "rough" areas. Many have turned to wandering in the hopes of finding a place where they are not looked on with hesitation.
 
 Tortle
 	REALLY rare, but when found, they're more looking for you than them.
 
 Shifter
 	Hermits that inspire the phrase "You're such a shifter (loner)"
+
+Warforged
+	Uncommon race that is most often seen at the arenas or as guards.
+
+----- Major Locations / Land (Primmer) -----
+Lands:
+	Current location: Axiom Hills
+	Northwest: The Jurai Forest
+	North and East: The Midir Mountains
+	Southeast: The Foothill Swamps. Beyond that, Midir Cliffs
+	South: Kaiyo Harbor
+	Southwest: Meigma Hills, a rocky terrain with it's own forest
+	West: Dios Plains
+
+Locations:
+	Axis, the capitol of Primmer
+	Kaiyo, a large harbor city on Kaiyo Harbor
+	Midra, a large mining and resources city in the Midir Mountains
+	Tonari, a large city on the edge of the Jurai Forest
+	Diades, a middle-large city in the Dios Plains
