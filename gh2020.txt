@@ -36,39 +36,51 @@ Other races that are known:
 
 Aasimar
 	Rarely found... Nothing seems to tie them together
+
 Arakocra
 	Fairly uncommon. Found mostly in Cliffside and in some harbors as
 	workers of some sort. Most are friendly-ish but wary of outsiders
 	and coarse in attitude.
+
 Changling
 	You've heard of them but only as rumors... no one confirmed case
+
 Goliath
 	RELATIVELY common in the mountain areas. Open to outsiders, but expect
 	to participate in an "entry" ritual of some sort before much additional
 	social interaction with them. The exception to this is trade, but contact
 	will be limited.
+
 Grung	(Frog like humanoid)
 	In the swamp forests, not often seen, but often found by those who are
 	lost. They have no problem helping you find your way out... for a price.
+
 Hybrid
 	You've heard of the "Hybrids" but you don't know anything beyond the name.
+
 Kenku
 	Mostly living on the outskirts of cities and large villages, they are most
 	common in areas where there is a high point. Many will work as messengers,
 	spies, and for the more shady of them, thieves. They are VERY good at what
 	they do.
+
 Loxodon (Elephant-like humanoid)
 	Found in plains and more often city outskirts, these creatures don't seem
 	too uncommon, but no one is willing to test them.
+
 Minotaur
 	Less myth than previously thought, they can be found near arenas and areas
 	where strength is appreciated.
+
 Taxabi
 	Wanderers that go from place to place
+
 Tiefling
 	Found in small groups of "rough" areas. Many have turned to wandering in
 	the hopes of finding a place where they are not looked on with hesitation.
+
 Tortle
 	REALLY rare, but when found, they're more looking for you than them.
+
 Shifter
 	Hermits that inspire the phrase "You're such a shifter (loner)"
